@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a6b7e1756f2904dadee32d8574ea28, type: 3}
+  m_Name: 3_KookyCoilCannonGun
+  m_EditorClassIdentifier: 
+  itemID: WPN_3
+  itemType: 0
+  cost: 0
+  currencyType: 0
+  progressDivisions: 2
+  icon: {fileID: 21300000, guid: 514fc964627ea9144bf7cc8080ed578d, type: 3}
+  baseSprite: {fileID: 21300000, guid: 774a4a59790e39d43a6d13681c8d6868, type: 3}
+  fillerSprite: {fileID: 21300000, guid: 514fc964627ea9144bf7cc8080ed578d, type: 3}
+  demoPrefab: {fileID: 2983608734916128822, guid: d5d691da06ba63c44b71fcd2fd2910fa, type: 3}
+  prefabToUnlock: {fileID: 650716532395034453, guid: 62391fc138723fd4183f0f46de3f5bc8, type: 3}

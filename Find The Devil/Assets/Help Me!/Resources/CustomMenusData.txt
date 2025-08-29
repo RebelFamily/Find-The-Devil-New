@@ -1,0 +1,4 @@
+Assets/GameData/MyScenes/MySplash.unity
+Assets/GameData/MyScenes/GamePlay.unity
+Assets/GameData/MyScenes/Meta 2.0.unity
+Assets/GameData/MyPrefabs/

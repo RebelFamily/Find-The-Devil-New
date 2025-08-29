@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36a29f990dab7144b70bdf1357421ab, type: 3}
+  m_Name: Level 17
+  m_EditorClassIdentifier: 
+  levelId: 17
+  _levelType: 0
+  levelPrefab: {fileID: 9074456274001390670, guid: 88ecc8478795251428c8641104d93621, type: 3}
+  enemySpawns: []
+  numberOfEnemy: 2
+  playerMovementSpeed: 3
+  levelRewardCoins: 100

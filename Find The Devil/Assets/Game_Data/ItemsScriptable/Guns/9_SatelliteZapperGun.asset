@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a6b7e1756f2904dadee32d8574ea28, type: 3}
+  m_Name: 9_SatelliteZapperGun
+  m_EditorClassIdentifier: 
+  itemID: WPN_9
+  itemType: 0
+  cost: 0
+  currencyType: 0
+  progressDivisions: 2
+  icon: {fileID: 21300000, guid: d0fc4e34ff13e5b4f9e79e9c83d1e9a5, type: 3}
+  baseSprite: {fileID: 21300000, guid: 59b35d0429d17994baa6bfe36836e42b, type: 3}
+  fillerSprite: {fileID: 21300000, guid: d0fc4e34ff13e5b4f9e79e9c83d1e9a5, type: 3}
+  demoPrefab: {fileID: 2983608734916128822, guid: 167dce85ddc847e4fbae4d997bdde7f4, type: 3}
+  prefabToUnlock: {fileID: 650716532395034453, guid: 29534e70d4350f54fa59058e207402d6, type: 3}

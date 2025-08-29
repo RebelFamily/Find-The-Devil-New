@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a6b7e1756f2904dadee32d8574ea28, type: 3}
+  m_Name: Scanner 1
+  m_EditorClassIdentifier: 
+  itemID: SCN_1
+  itemType: 1
+  cost: 0
+  currencyType: 0
+  progressDivisions: 0
+  icon: {fileID: 21300000, guid: d6a2cacffba96f84eb0b9528fd920cf1, type: 3}
+  baseSprite: {fileID: 21300000, guid: f92ef45552f00a540bd28feaff5fa703, type: 3}
+  fillerSprite: {fileID: 21300000, guid: d6a2cacffba96f84eb0b9528fd920cf1, type: 3}
+  demoPrefab: {fileID: 8648925963555548280, guid: 48b6bc2bf24c09a4c8ebaea37ab3f94b, type: 3}
+  prefabToUnlock: {fileID: 3661751043721170132, guid: 153100c95d95c9440b04771ad0db6e88, type: 3}

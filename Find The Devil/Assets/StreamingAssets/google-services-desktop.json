@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "718343200037",
+    "project_id": "android---find-the-devil",
+    "storage_bucket": "android---find-the-devil.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718343200037:android:bc396592684a398a294ecc",
+        "android_client_info": {
+          "package_name": "com.gtsy.whoisinside"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAD4x7Gjh4tAaiKinioxqdD_bR6Finy1ak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
