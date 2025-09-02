@@ -81,6 +81,9 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
     [Header("Death Effects")]
     [SerializeField] private ParticleSystem deathParticleSystemPrefab; // Assign your particle system prefab here
     [SerializeField] private GameObject devilGun;
+    [Header("Devil Gun Throw")]
+    private float throwDuration = 0.65f;
+    private float jumpPower = 0.85f;
     [Header("Expression Checks And References")]
     [SerializeField] private ExpressionController _expressionControllerl;
 
@@ -166,6 +169,14 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
             }
             
         }
+
+        if (gameObject.GetComponent<Rigidbody>() != null)
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            
+        }
+        
 
         if (characterSound != null)
         {
@@ -387,7 +398,7 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
 
         while (GameManager.Instance.levelManager._currentEnemyNumber > 1)
         {
-            yield return new WaitForSeconds(1.0f); 
+            yield return new WaitForSeconds(0.3f); 
         }
 
         yield return new WaitForSecondsRealtime(3f); 
@@ -412,13 +423,14 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
         devilExpressionController.DevilTalking(true);
         
         otherFormAnimator.SetInteger("AnimInt", 24);
-        yield return new WaitForSecondsRealtime(3f); 
+        yield return new WaitForSecondsRealtime(3.2f); 
         otherFormAnimator.SetInteger("AnimInt", 15);
-        yield return new WaitForSecondsRealtime(3f); 
+        yield return new WaitForSecondsRealtime(3.2f); 
         otherFormAnimator.SetInteger("AnimInt", 24);
-        yield return new WaitForSecondsRealtime(5f); 
-        otherFormAnimator.runtimeAnimatorController = kingDevilAnimatorController;
+        yield return new WaitForSecondsRealtime(3.5f); 
         devilExpressionController.DevilEvilSmile(true);
+        yield return new WaitForSecondsRealtime(1f); 
+        otherFormAnimator.runtimeAnimatorController = kingDevilAnimatorController;
       
         if (devilWings != null)
         {
@@ -445,7 +457,7 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
         _npcRunAway.HandleRunawayReaction();
         yield return new WaitForSecondsRealtime(1f); 
         GameManager.Instance.audioManager.PlaySFX(AudioManager.GameSound.Devil_Laugh);
-        yield return new WaitForSecondsRealtime(2f); 
+        yield return new WaitForSecondsRealtime(1.5f); 
        
         if (gameObject.CompareTag("Devil"))
         {
@@ -469,15 +481,21 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
             GameManager.Instance.uiManager.AddCoinsUI(onDeathCoins);
             _coinAnimator.AnimateCoinsDevilDeath();
         }
-        
+
         if (otherFormAnimator != null)
+        {
             otherFormAnimator.SetInteger("AnimInt", deathAnimInt);
+          // if(deathAnimInt == 100)
+           // otherFormAnimator.SetInteger("AnimInt", -1);
+        }
 
         yield return new WaitForSecondsRealtime(3f);
 
         if (deathParticleSystemPrefab != null)
         {
-            Vector3 spawnPos = otherForm.transform.position;
+            //Vector3 spawnPos = otherForm.transform.position;
+            Vector3 spawnPos = otherForm.transform.GetChild(0).transform.GetChild(0).position;
+            Debug.Log("otherForm.transform.GetChild(1). == " + otherForm.transform.GetChild(1).name);
             Quaternion spawnRot = deathParticleSystemPrefab.transform.rotation;
             ParticleSystem deathEffect = Instantiate(deathParticleSystemPrefab, spawnPos, spawnRot);
             deathEffect.Play();
@@ -543,47 +561,85 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
 
     public IEnumerator ReactWhenNPCDie()
     {
+        GameManager.Instance.levelManager.isLevelFail = true;
         if (_isReactingToHit) yield break; 
         if (humanAnimator != null) humanAnimator.runtimeAnimatorController = reactionAnimatorController;
         if (otherFormAnimator != null) otherFormAnimator.runtimeAnimatorController = reactionAnimatorController;
-     
+ 
         if (DeathPosSnapCheck)
         {
             transform.position = deathPosSnap.position;
         }
-        
+    
         if (characterSound != null)
         {
             characterSound.Stop();
         }
+        // Call the new function to animate the gun throw
         if(devilGun != null)
-            devilGun.SetActive(true);
+            StartCoroutine( AnimateDevilGunThrow());
 
-      
         if (TryGetComponent(out IEnemy enemyComponent))
         {
             if (humanAnimator != null)
             {
-                humanAnimator.SetInteger("AnimInt", 8);
+                // humanAnimator.SetInteger("AnimInt", 8);
+                humanAnimator.SetInteger("AnimInt", -1);
+                humanAnimator.SetTrigger("EnemyShoot");
             } 
             if (otherFormAnimator != null)
             {
-                otherFormAnimator.SetInteger("AnimInt", 8);
+                // otherFormAnimator.SetInteger("AnimInt", 8);
+                otherFormAnimator.SetInteger("AnimInt", -1);
+                otherFormAnimator.SetTrigger("EnemyShoot");
             }
         }
+    
         int targetLayer = LayerMask.NameToLayer("Default"); 
         if (humanForm != null) SetLayerRecursively(humanForm, targetLayer);
         if (otherForm != null) SetLayerRecursively(otherForm, targetLayer);
 
         if (humanForm != null) humanForm.SetActive(false);
         OnDeathLookAt();
-        
-        
+    
+    
         yield return new WaitForSecondsRealtime(4f);  
         Debug.Log("ReactWhenNPCDie() ==== ");
         OnReactWhenNPCDie?.Invoke(gameObject);
-    } 
+    }
+    
+    public IEnumerator AnimateDevilGunThrow()
+    {
+        if (devilGun == null) yield break;
+        
+        yield return new WaitForSeconds(0.3f);
 
+        devilGun.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+        devilGun.SetActive(false);
+
+        GameObject animatedGun = Instantiate(devilGun, devilGun.transform.position, devilGun.transform.rotation);
+        animatedGun.SetActive(true);
+   
+        Vector3 targetPosition = GameManager.Instance.playerController.enemyLookAt.position;
+        animatedGun.transform.LookAt(targetPosition);
+
+        yield return animatedGun.transform.DOJump(targetPosition, jumpPower, 1, throwDuration)
+            .SetEase(Ease.Linear)
+            .WaitForCompletion();
+
+        GameManager.Instance.uiManager.spearEffect.SetActive(true);
+        GameManager.Instance.audioManager.PlaySFX(AudioManager.GameSound.Glass_Breaking);
+        yield return new WaitForSeconds(0.4f);
+        Destroy(animatedGun);
+        
+        yield return new WaitForSeconds(1.8f);
+        GameManager.Instance.uiManager.spearEffect.SetActive(false);
+       
+        
+    }
+    
     public void TriggerSpecificReaction(NPCReactionType type, Transform targetDestination = null)
     {
         if ( _npcRunAway != null && _npcRunAway.isRunningINCircle)

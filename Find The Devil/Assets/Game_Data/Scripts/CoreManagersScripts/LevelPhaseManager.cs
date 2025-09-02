@@ -50,6 +50,9 @@ public class LevelPhaseManager : MonoBehaviour
     private int _targetEnemiesForPhaseCompletion;
     public AudioManager.GameSound levelBGAudio;
     public AudioManager.GameSound levelBasedSFXSound;
+    public float levelSkipPoint;
+    
+    
     
     
     [Header("Player Movement Controller")]
@@ -94,6 +97,7 @@ public class LevelPhaseManager : MonoBehaviour
     [SerializeField] private RuntimeAnimatorController ladderDeadAnimation;
     [SerializeField] private float ladderFallDuration = 1.5f;
 
+    
 
     [Header("Ladder Level Specifics")] 
     public GameObject objectToHide;
@@ -469,7 +473,12 @@ public class LevelPhaseManager : MonoBehaviour
         Debug.Log("King Devil reaction complete. Moving player to next point.");
         if(isKindDevilLevel)
         {
-            _SplineData.SetNewMovementSpeed(_playerMovementSpeed,4f);
+            if(GameManager.Instance.levelManager._currentLevelNumber == 11)
+                _SplineData.SetNewMovementSpeed(_playerMovementSpeed,2f);
+            else
+            {
+                _SplineData.SetNewMovementSpeed(_playerMovementSpeed,4f);
+            }
         }
     }
 

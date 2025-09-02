@@ -237,7 +237,7 @@ public class ShopManager : MonoBehaviour
                 }
             }
             
-            //AdsCaller.Instance.SetVIPPurchased();
+            AdsCaller.Instance.SetVIPPurchased();
         }
         
         Debug.Log("All VIP weapons and scanners have been unlocked.");

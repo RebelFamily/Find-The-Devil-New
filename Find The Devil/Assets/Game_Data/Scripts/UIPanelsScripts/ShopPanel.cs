@@ -456,6 +456,7 @@ public class ShopPanel : UIPanel
 
     private void OnBackButtonClicked()
     {
+        GameManager.Instance.audioManager.StopLoopingSFX();
         GameManager.Instance.levelManager.HideObjectInLevel(true);
         Hide();
         ClearDemoVisual();
@@ -465,10 +466,10 @@ public class ShopPanel : UIPanel
     {
         if (_currentSelectedItemUI != null && _currentSelectedItemUI.currentItem != null && !_currentSelectedItemUI.currentItem.GetIsAVIPTool())
         {
-            /*AdsCaller.Instance.ShowRewardedAd((() =>
+            AdsCaller.Instance.ShowRewardedAd((() =>
             {
                 HandlePurchaseRequest(_currentSelectedItemUI.currentItem);
-            }));*/
+            }));
         }
        
     }
@@ -525,13 +526,11 @@ public class ShopPanel : UIPanel
        
         if (_currentShopMode == ShopMode.Weapons)
         {
-            //ads hide warning check
-            //IAPManager.Instance.InAppCaller(PurchaseType.AllGuns);
+            IAPManager.Instance.InAppCaller(PurchaseType.AllGuns);
         }
         else if (_currentShopMode == ShopMode.Scanners)
         {
-            //ads hide warning check
-            //IAPManager.Instance.InAppCaller(PurchaseType.AllScanners);
+            IAPManager.Instance.InAppCaller(PurchaseType.AllScanners);
         }
     }
 
@@ -645,6 +644,8 @@ public class ShopPanel : UIPanel
         if (toolDemoContainer != null && demoPrefab != null)
         {
             _currentDemoInstance = Instantiate(demoPrefab, toolDemoContainer.transform);
+            // additional check
+            _currentDemoInstance.GetComponent<LaserReactionAutomator>().SetGunToPosition();
             toolDemoContainer.SetActive(true);
         }
     }

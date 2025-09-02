@@ -81,15 +81,30 @@ public class ResultsPanel : UIPanel
         }
     }
 
+    public void NoThankButtonContinue()
+    {
+        // for scanner
+        GameManager.Instance.audioManager.StopLoopingSFX();
+        
+        toolsUnlockHandler.GetSpawnedDemoTool().GetComponent<LaserReactionAutomator>().AnimateGunBackToOriginalPos(() =>
+        {
+            AdsCaller.Instance.ShowTimerAd();
+            HideWithCallbacks(LoadLevelMeta);    
+        });
+    }
+    
+    
     public void OnContinueButtonClicked()
     {
-        //AdsCaller.Instance.ShowTimerAd();
+        
+        AdsCaller.Instance.ShowTimerAd();
         HideWithCallbacks(LoadLevelMeta);
     }
 
     private void OnContinueLiberatedButtonClicked()
     {
-       // AdsCaller.Instance.ShowTimerAd();
+        // resuce check
+        //AdsCaller.Instance.ShowTimerAd();
         HideWithCallbacks(LoadLevelLiberated);
     }
     
@@ -133,9 +148,8 @@ public class ResultsPanel : UIPanel
                 winPanel.SetActive(true);
                 failPanel.SetActive(false);
                 liberatedPanel.SetActive(false);
-                continueButton.interactable = false;
-                continueButton.gameObject.SetActive(true);
-                if(continueButtonAnimator != null) continueButtonAnimator.ScaleUp();
+                //continueButton.interactable = false;
+                //continueButton.gameObject.SetActive(true);
                 
                 AnimatePanelIn(winPanelAnimator, () =>
                 {
@@ -155,23 +169,26 @@ public class ResultsPanel : UIPanel
                                     {
                                         getToolUnlockPanel.SetActive(true);
                                         winPanel.SetActive(false);
-                                        continueButton.interactable = false;
+                                        //continueButton.interactable = false;
                                         AnimatePanelIn(getToolUnlockPanelAnimator); 
-                                        //Ads calling 
-                                       // AdsCaller.Instance.ShowTimerAd();
+                                        GameManager.Instance.audioManager.PlaySFX(AudioManager.GameSound.Confettipop);
+                                       
 
                                     }
-                                }
+                                } 
                                 else
                                 {
-                                    continueButton.interactable = true;
+                                    continueButton.gameObject.SetActive(true);
+                                    if(continueButtonAnimator != null) continueButtonAnimator.ScaleUp();
                                 }
-                                
+
                             });
                         }
                         else
                         {
-                            continueButton.interactable = true;
+                                 continueButton.gameObject.SetActive(true);
+                                if(continueButtonAnimator != null) continueButtonAnimator.ScaleUp();
+                            //continueButton.interactable = true;
                             //Ads calling 
                             //AdsCaller.Instance.ShowTimerAd();
 
@@ -179,7 +196,9 @@ public class ResultsPanel : UIPanel
                     }
                     else
                     {
-                        continueButton.interactable = true;
+                        continueButton.gameObject.SetActive(true);
+                        if(continueButtonAnimator != null) continueButtonAnimator.ScaleUp();
+                       // continueButton.interactable = true;
                     }
                    
                     GameManager.Instance.uiManager.SwitchBlocker(false);
@@ -199,7 +218,7 @@ public class ResultsPanel : UIPanel
             restartButtonAnimator.gameObject.SetActive(true);
             if(restartButtonAnimator != null) restartButtonAnimator.ScaleUp();
             
-           // AdsCaller.Instance.ShowRectBanner();
+            AdsCaller.Instance.ShowRectBanner();
             
             AnimatePanelIn(failPanelAnimator, () =>
             {
@@ -236,7 +255,7 @@ public class ResultsPanel : UIPanel
 
     public override void Hide()
     {
-       // AdsCaller.Instance.DestroyRectBanner();
+        AdsCaller.Instance.DestroyRectBanner();
         HideWithCallbacks();
     }
 
@@ -331,8 +350,8 @@ public class ResultsPanel : UIPanel
 
     private void OnClaimToolButtonClicked()
     {
-       // AdsCaller.Instance.ShowRewardedAd((() =>
-       // {
+        AdsCaller.Instance.ShowRewardedAd((() =>
+        {
              if (toolsUnlockHandler == null)
         {
             Debug.LogWarning("ToolsUnlockHandler is not assigned to ResultsPanel.");
@@ -417,7 +436,7 @@ public class ResultsPanel : UIPanel
             LoadLevelMeta();
         }
             
-       // }));
+        }));
        
     }
         
@@ -462,22 +481,46 @@ public class ResultsPanel : UIPanel
 
     }
     
-    public void LoadLevelLiberated() 
+    public void LoadLevelLiberated()
+    {
+
+         StartCoroutine(LoadLevelLiberatedCall());
+      
+      //   GameManager.Instance.uiManager.LevelLoaderUI(() =>
+      //   {
+      //       GameManager.Instance.levelManager.LoadNextLevel();
+      //       GameManager.Instance.playerController.Init();
+      //       GameManager.Instance.uiManager.UnLoadLoaderUI();
+      //   });
+      // //  GameManager.Instance.levelManager.LoadNextLevel();
+      //  // GameManager.Instance.playerController.Init();
+      //  
+      //   GameManager.Instance.uiManager.HidePanel(UIPanelType.ResultsPanel);
+      //   GameManager.Instance.uiManager.ShowPanel(UIPanelType.MainMenuPanel);
+      //   GameManager.Instance.metaManager.DeactivateCityMeta();
+      //   RenderSettings.fog = true;
+    }
+
+    public IEnumerator LoadLevelLiberatedCall()
     {
         GameManager.Instance.uiManager.LevelLoaderUI(() =>
         {
+            GameManager.Instance.metaManager.DeactivateCityMeta();
             GameManager.Instance.levelManager.LoadNextLevel();
             GameManager.Instance.playerController.Init();
             GameManager.Instance.uiManager.UnLoadLoaderUI();
+             GameManager.Instance.uiManager.ShowPanel(UIPanelType.MainMenuPanel);
         });
-      //  GameManager.Instance.levelManager.LoadNextLevel();
-       // GameManager.Instance.playerController.Init();
-       
-        GameManager.Instance.uiManager.HidePanel(UIPanelType.ResultsPanel);
-        GameManager.Instance.uiManager.ShowPanel(UIPanelType.MainMenuPanel);
-        GameManager.Instance.metaManager.DeactivateCityMeta();
+        //  GameManager.Instance.levelManager.LoadNextLevel();
+        // GameManager.Instance.playerController.Init();
+
+        yield return new WaitForSeconds(0.3f);
+       // GameManager.Instance.uiManager.HidePanel(UIPanelType.ResultsPanel);
+        ///yield return new WaitForSeconds(0.3f);
         RenderSettings.fog = true;
+        
     }
+    
     
     private IEnumerator ActivateMetaWithDelay(float delay)
     {
@@ -494,13 +537,13 @@ public class ResultsPanel : UIPanel
    
     public void OnContinueRestartButtonClicked()
     {
-       // AdsCaller.Instance.ShowTimerAd();
+        AdsCaller.Instance.ShowTimerAd();
         HideWithCallbacks(() =>
         {
             GameManager.Instance.levelManager.ReloadCurrentLevel();
             GameManager.Instance.playerController.Init();
             GameManager.Instance.isLevelFailCalled = false; 
-           // AdsCaller.Instance.DestroyRectBanner();
+            AdsCaller.Instance.DestroyRectBanner();
             GameManager.Instance.uiManager.ShowPanel(UIPanelType.MainMenuPanel);
         });
         // AdsCaller.Instance.ShowRewardedAd(() =>

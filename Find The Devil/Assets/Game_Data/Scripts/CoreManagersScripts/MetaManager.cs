@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Collections;
 using DG.Tweening;
-//using GameAnalyticsSDK;
+using GameAnalyticsSDK;
 using System;
 using UnityEngine.UI;
 
@@ -281,7 +281,7 @@ public class MetaManager : MonoBehaviour
             
             if (GameManager.Instance.economyManager.GetCoins() > 0)
             {
-               // AnalyticsManager.Instance.ProgressionEventMetaMode(GAProgressionStatus.Complete, ("ID_"+_currentLoadedMeta.metaID+"_Count " + _metaCompletionCount));
+                AnalyticsManager.Instance.ProgressionEventMetaMode(GAProgressionStatus.Complete, ("ID_"+_currentLoadedMeta.metaID+"_Count " + _metaCompletionCount));
 
                 GameManager.Instance.economyManager.SpendCoins(1);
                 StartCoroutine(AnimateOutAndLoadNextMeta());
@@ -375,10 +375,10 @@ public class MetaManager : MonoBehaviour
         get200CoinsObj.transform.position = startPos.position;
         GameManager.Instance.uiManager.ShowAdCoinsOption();
         GameManager.Instance.audioManager.StopMusic();
-        GameManager.Instance.audioManager.PlayLoopingSFX(AudioManager.GameSound.Drone,true);
+        //GameManager.Instance.audioManager.PlayLoopingSFX(AudioManager.GameSound.Drone,true);
         get200CoinsObj.transform.DOMove(targetPos.position, 1f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            GameManager.Instance.audioManager.StopLoopingSFX();
+            //GameManager.Instance.audioManager.StopLoopingSFX();
             get200CoinsObj.GetComponent<DOTweenAnimation>().DORestart();
         });
     }
@@ -425,13 +425,13 @@ public class MetaManager : MonoBehaviour
     public void ProceedToNextLevel()
     {
         GameManager.Instance.uiManager.HideAdCoinsOption(); 
-        GameManager.Instance.audioManager.PlayLoopingSFX(AudioManager.GameSound.Drone,true);
+        //GameManager.Instance.audioManager.PlayLoopingSFX(AudioManager.GameSound.Drone,true);
         get200CoinsObj.transform.DOMove(startPos.position, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             get200CoinsObj.GetComponent<DOTweenAnimation>().DOPause();
             get200CoinsObj.SetActive(false);
             
-            GameManager.Instance.audioManager.StopLoopingSFX();
+           // GameManager.Instance.audioManager.StopLoopingSFX();
        
             _isShowingAdOption = false;
             _isHandlingTransition = false;

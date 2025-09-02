@@ -416,11 +416,11 @@ public class MetaPanel : UIPanel, IPointerDownHandler, IPointerUpHandler, IPoint
    
     private void OnGet200CoinsClicked()
     {
-        /*AdsCaller.Instance.ShowRewardedAd((() =>
+        AdsCaller.Instance.ShowRewardedAd((() =>
         {
             StartCoroutine(GameManager.Instance.metaManager.WatchAdForCoins());
         
-        }));*/
+        }));
     }
 
     private void OnNoThanksClicked()

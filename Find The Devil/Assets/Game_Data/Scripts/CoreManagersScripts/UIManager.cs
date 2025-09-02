@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float messageDuration = 3.0f;
     public Transform coinsTargetPos;
     private Coroutine _messageCoroutine;
+
+    public GameObject spearEffect;
     
     private void Awake()
     {
@@ -68,12 +70,10 @@ public class UIManager : MonoBehaviour
     
     public void ShowPanel(UIPanelType panelType)
     {
-        /*
         if (AdsCaller.Instance._isRemoveAdsPurchased)
         {
             bottomBannerPanel.SetActive(false);
         }
-        */
         
         if (panelDictionary.TryGetValue(panelType, out IUIPanel panel))
         {
@@ -92,6 +92,21 @@ public class UIManager : MonoBehaviour
         if (panelDictionary.TryGetValue(panelType, out IUIPanel panel))
         {
             panel.UpdatePanel();
+        } 
+    }
+     public void ShowTapTOZapPanel(bool value)
+    {
+        if ((panelDictionary.TryGetValue(UIPanelType.LevelObjectivesPanel, out IUIPanel panel) && panel is LevelObjectivesPanel tPanel))
+        {
+            tPanel.ShowTapToZap(value);  
+           
+        }  
+    }
+     public void ShowScannerPanel()
+    {
+        if ((panelDictionary.TryGetValue(UIPanelType.TutorialPanel, out IUIPanel panel) && panel is TutorialPanel tPanel))
+        {
+          tPanel.ShowSwipeToScan();  
         } 
     }
     

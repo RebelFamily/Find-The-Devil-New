@@ -1,5 +1,5 @@
 using System.Collections;
-//using GameAnalyticsSDK;
+using GameAnalyticsSDK;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         
         //Ads && Analytics Calling
-       // AdsCaller.Instance.StartAdTimer();
+        AdsCaller.Instance.StartAdTimer();
         
         Vibration.Init();
         yield return _initDelay;
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         yield return _initDelay;
         uiManager.ShowPanel(UIPanelType.MainMenuPanel);
         
-      //  AdsCaller.Instance.ShowBanner();
+        AdsCaller.Instance.ShowBanner();
 
         
     }
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         //Ads && Analytics Calling
-        
+        levelManager.isLevelFail = false;
         audioManager.PlaySFX(AudioManager.GameSound.ButtonClick_Normal);
         
         Debug.Log("levelManager._currentLevelNumber == "+levelManager._currentLevelNumber +" && levelManager.GlobalLevelNumber == " 
@@ -122,13 +122,14 @@ public class GameManager : MonoBehaviour
         if (!isLevelFailCalled)
         {
             isLevelFailCalled = true;
+            
             // uiManager.HideAllPanels();
-           // AdsCaller.Instance.ShowRectBanner();
+            AdsCaller.Instance.ShowRectBanner();
             
            // AdsCaller.Instance.ShowTimerAd();
 
-           // AnalyticsManager.Instance.ProgressionEventSingleMode(GAProgressionStatus.Fail,
-            //    (levelManager.GlobalLevelNumber + 1).ToString());
+            AnalyticsManager.Instance.ProgressionEventSingleMode(GAProgressionStatus.Fail,
+                (levelManager.GlobalLevelNumber + 1).ToString());
 
             if (levelManager._currentLevelNumber == 0 && levelManager.GlobalLevelNumber == 0)
             {
@@ -150,7 +151,7 @@ public class GameManager : MonoBehaviour
        
        // AdsCaller.Instance.ShowTimerAd();
 
-       // AnalyticsManager.Instance.ProgressionEventSingleMode(GAProgressionStatus.Complete, (levelManager.GlobalLevelNumber+1).ToString());
+        AnalyticsManager.Instance.ProgressionEventSingleMode(GAProgressionStatus.Complete, (levelManager.GlobalLevelNumber+1).ToString());
         
         progressionManager.UnlockNextLevel();
         playerController.ResetTools();
@@ -200,7 +201,7 @@ public class GameManager : MonoBehaviour
     {
         if (PurchaseType.RemoveAds == type)
         {
-          //  AdsCaller.Instance.RemoveAds();
+            AdsCaller.Instance.RemoveAds();
         }
     }
     

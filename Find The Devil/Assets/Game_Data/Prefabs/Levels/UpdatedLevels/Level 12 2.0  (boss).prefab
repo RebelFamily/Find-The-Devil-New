@@ -180,6 +180,7 @@ MonoBehaviour:
     npcsInPhase: []
   levelBGAudio: 24
   levelBasedSFXSound: 0
+  levelSkipPoint: 0.9828444
   _SplineData: {fileID: 4586253687341682301}
   _playerMovementSpeed: 3
   movePlayerToNextPoint: 0
@@ -3574,7 +3575,7 @@ MonoBehaviour:
     - name: Trigger 10
       type: 1
       workOnce: 0
-      position: 0.9658932056691911
+      position: 0.9621776938438416
       enabled: 1
       color: {r: 1, g: 1, b: 1, a: 1}
       onCross:
@@ -3592,10 +3593,10 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 5692632865802315928}
-            m_TargetAssemblyTypeName: CaptureDataContainer, Assembly-CSharp
-            m_MethodName: SkipAllReleases
-            m_Mode: 1
+          - m_Target: {fileID: 4586253687341682301}
+            m_TargetAssemblyTypeName: SplineData, Assembly-CSharp
+            m_MethodName: SetNewMovementSpeed
+            m_Mode: 4
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3604,10 +3605,19 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-          - m_Target: {fileID: 4586253687341682301}
-            m_TargetAssemblyTypeName: SplineData, Assembly-CSharp
-            m_MethodName: SetNewMovementSpeed
-            m_Mode: 4
+    - name: Trigger 10
+      type: 1
+      workOnce: 0
+      position: 1
+      enabled: 1
+      color: {r: 1, g: 1, b: 1, a: 1}
+      onCross:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 5692632865802315928}
+            m_TargetAssemblyTypeName: CaptureDataContainer, Assembly-CSharp
+            m_MethodName: SkipAllReleases
+            m_Mode: 1
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8125,9 +8135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinnedMeshRenderer: {fileID: 2507944916383733209}
-  eyesMaterial: {fileID: 2100000, guid: ca5c4e4c72d13404e81ebb649dfdcb44, type: 2}
-  noseMaterial: {fileID: 2100000, guid: c29f5c80b903d2b48b244bd0d1aa096a, type: 2}
-  mouthMaterial: {fileID: 2100000, guid: 4749def5ad71c454ca9a9ad40f3711e1, type: 2}
+  eyesMaterial: {fileID: 0}
+  noseMaterial: {fileID: 0}
+  mouthMaterial: {fileID: 0}
   isDevilExpression: 0
   evilTalkBlendShapeName: Evil Talk
   evilAngrySmileBlendShapeName: Evil Angry Smile
@@ -8170,21 +8180,18 @@ MonoBehaviour:
   devilMaxSadWoowWeight: 100
   devilMinDelayBetweenSadWoow: 3
   devilMaxDelayBetweenSadWoow: 8
-  npcOriginalEyesTexture: {fileID: 0}
-  npcOriginalMouthTexture: {fileID: 0}
-  enableTalkingAnimation: 1
+  npcOriginalEyesTexture: {fileID: 2800000, guid: cba8ec1e9977a654b97c6a46eb54d5df, type: 3}
+  npcOriginalMouthTexture: {fileID: 2800000, guid: c9297ad6d32e00349acd949b99e072b9, type: 3}
+  enableTalkingAnimation: 0
   talkingAnimationInterval: 0.1
-  talkingMouthTextures:
-  - {fileID: 2800000, guid: 5eecae9b2b9cfab4e8065c7b151b8fd2, type: 3}
-  - {fileID: 2800000, guid: 66a5bc574fe535c4fa8ce1f098a9bbb5, type: 3}
-  - {fileID: 2800000, guid: 2a6ee4053edbc83408e5e3778ec78bd4, type: 3}
+  talkingMouthTextures: []
   minDelayBetweenTalk: 1
   maxDelayBetweenTalk: 2
   minTalkDuration: 1
   maxTalkDuration: 2
-  enableBlinkAnimation: 1
-  blinkEyeOpenTexture: {fileID: 2800000, guid: 68d576b02574c0e4bac9260417ea5e3b, type: 3}
-  blinkEyeClosedTexture: {fileID: 2800000, guid: 1cb1cdb9f345e1348bc344072e07d719, type: 3}
+  enableBlinkAnimation: 0
+  blinkEyeOpenTexture: {fileID: 0}
+  blinkEyeClosedTexture: {fileID: 0}
   blinkDuration: 0.05
   minDelayBetweenBlinks: 2
   maxDelayBetweenBlinks: 5

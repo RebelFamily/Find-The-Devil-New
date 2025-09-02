@@ -73,7 +73,24 @@ public class TutorialPanel : UIPanel
         _hasScanned = false; 
         UpdateTutorialUI();
     }
-
+    // --- NEW: Public functions to show specific tutorial prompts ---
+    public void ShowSwipeToScan()
+    {
+        _currentTutorialState = TutorialState.ScannerTutorialActive;
+        _hasScanned = false; // Reset the flag so the step can be completed
+        UpdateTutorialUI();
+    }
+    
+    public void ShowTapToZap()
+    {
+        swipeToScan?.SetActive(false);
+        switchLaserArrow?.SetActive(false);
+        tapToZap?.SetActive(false);
+        
+        _currentTutorialState = TutorialState.LaserTutorialActive;
+        UpdateTutorialUI();
+    }
+    // --- END NEW ---
  
     private void OnScannerUsedHandler()
     {
@@ -151,8 +168,7 @@ public class TutorialPanel : UIPanel
         }
     }
 
-    // --- UI Update Logic ---
-
+  
     private void UpdateTutorialUI()
     {
         swipeToScan?.SetActive(false);
@@ -168,6 +184,7 @@ public class TutorialPanel : UIPanel
                 switchLaserArrow?.SetActive(true);
                 break; 
             case TutorialState.LaserTutorialActive:
+                Debug.Log("TutorialState.LaserTutorialActive:");
                 tapToZap?.SetActive(true);
                 break;
             case TutorialState.Completed:
@@ -180,6 +197,8 @@ public class TutorialPanel : UIPanel
         }
     }
 
+   
+    
     // Public method to reset the tutorial if needed (e.g., player dies, restarts level)
     public void ResetTutorial()
     {

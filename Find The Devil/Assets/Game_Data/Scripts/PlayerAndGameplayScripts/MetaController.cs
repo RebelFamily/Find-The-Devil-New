@@ -367,12 +367,13 @@ public class MetaController : MonoBehaviour
         float totalDuration = 2f;
         float delayBetweenBursts = totalDuration / (damagedBuildings.Length * 2);
         
+        GameManager.Instance.audioManager.PlaySFX(AudioManager.GameSound.Confettipop);
+        
         for (int i = 0; i < damagedBuildings.Length; i++)
         {
             DamagedBuildings part = damagedBuildings[i];
             if (part.originalFormInstance != null)
             {
-                GameManager.Instance.audioManager.PlaySFX(AudioManager.GameSound.Confettipop);
                 // Play the first burst for this building
                 PlayConfettiForBuilding(part.originalFormInstance.transform.position, totalDuration);
                 yield return new WaitForSeconds(delayBetweenBursts);

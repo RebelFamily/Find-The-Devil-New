@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
-//using UnityEngine.Purchasing;
+using UnityEngine.Purchasing;
 
 public class MainMenuPanel : UIPanel
 {
@@ -96,13 +96,13 @@ public class MainMenuPanel : UIPanel
         if (playButtonAnimator != null) playButtonAnimator.ScaleUp();
         if (scannerShopButtonAnimator != null) scannerShopButtonAnimator.ScaleUp();
         if (weaponsShopButtonAnimator != null) weaponsShopButtonAnimator.ScaleUp();
-        if (getVIPButtonAnimator != null /*&& !AdsCaller.Instance._isGetVIPPurchased*/) getVIPButtonAnimator.ScaleUp();
+        if (getVIPButtonAnimator != null && !AdsCaller.Instance._isGetVIPPurchased) getVIPButtonAnimator.ScaleUp();
         if (basesButtonAnimator != null) basesButtonAnimator.ScaleUp();
         if (levelProgressBarAnimator != null) levelProgressBarAnimator.ScaleUp(() =>
         {
             _levelProgressBarHandler.UpdateProgressBar();});
         // NEW: Animate the remove ads button
-        if (removeAdsButtonAnimator != null /*&& !AdsCaller.Instance._isRemoveAdsPurchased*/) removeAdsButtonAnimator.ScaleUp();
+        if (removeAdsButtonAnimator != null && !AdsCaller.Instance._isRemoveAdsPurchased) removeAdsButtonAnimator.ScaleUp();
     }
     
     public override void Hide()
@@ -183,7 +183,7 @@ public class MainMenuPanel : UIPanel
 
         if (GameManager.Instance.IsClickLocked()) return;
         GameManager.Instance.LockClicks();
-        /*if (!AdsCaller.Instance._isRemoveAdsPurchased)
+        if (!AdsCaller.Instance._isRemoveAdsPurchased)
         {
             GameManager.Instance.uiManager.HidePanel(UIPanelType.MainMenuPanel);
             GameManager.Instance.uiManager.ShowPanel(UIPanelType.GetVIPPanel);
@@ -192,7 +192,7 @@ public class MainMenuPanel : UIPanel
         else
         {
             GameManager.Instance.uiManager.ShowGeneralMessage("This feature have been already bought.");
-        }*/
+        }
         
         GameManager.Instance.UnlockClicks();
     }
@@ -227,13 +227,12 @@ public class MainMenuPanel : UIPanel
         if (GameManager.Instance.IsClickLocked()) return;
         GameManager.Instance.LockClicks();
         
-        // if(!AdsCaller.Instance._isRemoveAdsPurchased)
-        //     //ads hide warning check
-        //     //   IAPManager.Instance.InAppCaller(PurchaseType.RemoveAds);
-        // else
-        // {
-        //     GameManager.Instance.uiManager.ShowGeneralMessage("Remove Ads Have been purchased already.");
-        // }
+        if(!AdsCaller.Instance._isRemoveAdsPurchased)
+            IAPManager.Instance.InAppCaller(PurchaseType.RemoveAds);
+        else
+        {
+            GameManager.Instance.uiManager.ShowGeneralMessage("Remove Ads Have been purchased already.");
+        }
         
         GameManager.Instance.UnlockClicks();
     }

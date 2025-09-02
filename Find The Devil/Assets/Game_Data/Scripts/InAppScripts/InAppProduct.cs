@@ -9,8 +9,7 @@
 [System.Serializable]
 public class InAppProduct
 {
-    //ads hide warning check
-    //public UnityEngine.Purchasing.ProductType purchaseableType = UnityEngine.Purchasing.ProductType.Consumable;
+    public UnityEngine.Purchasing.ProductType purchaseableType = UnityEngine.Purchasing.ProductType.Consumable;
     public string purchaseID = "";
     public PurchaseType itemType;
     public string price;

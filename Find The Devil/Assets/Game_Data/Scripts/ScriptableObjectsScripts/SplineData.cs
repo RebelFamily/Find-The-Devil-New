@@ -13,13 +13,30 @@ public class SplineData : MonoBehaviour
 
     public void ActivateTools()
     {
+        
+        if(GameManager.Instance.levelManager.isLevelFail)
+            return;
+        
         if(GameManager.Instance.levelManager.GlobalLevelNumber == 0)
             GameManager.Instance.playerController.SetupTools();
+
+
+        if (GameManager.Instance.levelManager._currentLevelNumber == 7)
+        {
+                GameManager.Instance.playerController.SetupTools();
+        }
             
+        
         
         if(!GameManager.Instance.uiManager.GetVIPGunAnimationCheck())
             GameManager.Instance.playerController.SetupTools();
         
+    }
+
+    public void DeactivateTools()
+    {
+        GameManager.Instance.uiManager.HidePanel(UIPanelType.GameOverlayPanel);
+        GameManager.Instance.playerController.ResetTools();
     }
 
     public void StopMovementFor(float time)

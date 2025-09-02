@@ -17,5 +17,5 @@ MonoBehaviour:
   levelPrefab: {fileID: 2030315415325501471, guid: 89d805601d940314d88ceca2fc29147e, type: 3}
   enemySpawns: []
   numberOfEnemy: 10
-  playerMovementSpeed: 3
+  playerMovementSpeed: 4
   levelRewardCoins: 100

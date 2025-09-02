@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-//using GameAnalyticsSDK;
+using GameAnalyticsSDK;
 
 public enum LevelType { Linear, Meta, Bonus, Rescue }
 
@@ -32,6 +32,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private bool _editorTestMode = false;
     [SerializeField] private int _testLevelIndex = 0;
 
+    public bool isLevelFail = false;
+    
     public void Init()
     {
         _allLevels = new List<ILevelData>();
@@ -139,7 +141,7 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         // banner call
-       // AdsCaller.Instance.ShowBanner();
+        AdsCaller.Instance.ShowBanner();
 
         int nextLevelIndex = GameManager.Instance.progressionManager.GetUnlockedLevel();
         if (nextLevelIndex < _allLevels.Count)
@@ -259,12 +261,10 @@ public class LevelManager : MonoBehaviour
         
     }
     
-    /*
     private void SendProgressionEvent(GAProgressionStatus status, string levelDetail)
     {
         AnalyticsManager.Instance.ProgressionEventSingleMode(status,levelDetail);
     }
-    */
     
     
     

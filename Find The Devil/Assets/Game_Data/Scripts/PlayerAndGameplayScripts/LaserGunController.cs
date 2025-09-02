@@ -31,6 +31,10 @@ public class LaserGunController : MonoBehaviour, IWeapon
     private float _lastFireTime = -1f;
 
     private GameObject _currentLaserEffect;
+    // --- NEW: Reference to the current impact effect ---
+    private GameObject _currentImpactEffect;
+    private GameObject _currentMissImpactEffect;
+    // --- END NEW ---
     private Coroutine laserDisplayCoroutine; 
     
     public static event Action OnLaserFired;
@@ -51,6 +55,8 @@ public class LaserGunController : MonoBehaviour, IWeapon
     public void Deactivate()
     {
         IsActive = false;
+
+        // --- NEW: Clean up any active laser and impact effects ---
         if (_currentLaserEffect != null)
         {
             MLaser currentMLaser = _currentLaserEffect.GetComponent<MLaser>();
@@ -67,8 +73,20 @@ public class LaserGunController : MonoBehaviour, IWeapon
             StopCoroutine(laserDisplayCoroutine);
             laserDisplayCoroutine = null;
         }
+
+        if (_currentImpactEffect != null)
+        {
+            Destroy(_currentImpactEffect);
+            _currentImpactEffect = null;
+        }
+
+        if (_currentMissImpactEffect != null)
+        {
+            Destroy(_currentMissImpactEffect);
+            _currentMissImpactEffect = null;
+        }
+        // --- END NEW ---
     }
-    
     
     void Start()
     {
@@ -134,7 +152,7 @@ public class LaserGunController : MonoBehaviour, IWeapon
                 Vibration.VibratePop();
                 GameManager.Instance.audioManager.PlayGunSFX(GunSound);
                 // The Fire method will now handle setting MLaser's start and end points
-                Fire(_parentRef.GetComponent<CharacterReactionHandler>().deathEffectPosition.transform.position);
+                Fire(_parentRef.GetComponent<CharacterReactionHandler>().deathEffectPosition.transform.position, true);
                
             }
             else if(GameManager.Instance.levelManager.CurrentLevel.GetLevelType() == LevelType.Rescue)
@@ -152,10 +170,18 @@ public class LaserGunController : MonoBehaviour, IWeapon
                     gunModel.transform.LookAt(hit.point);
                     Vibration.VibratePop();
                     GameManager.Instance.audioManager.PlayGunSFX(GunSound);
-                    GameObject impact2 = Instantiate(missImpactEffectPrefab, hit.point, Quaternion.identity);
-                    Destroy(impact2, impactEffectDuration);
+                    
+                    // --- NEW: Handle miss impact and store reference for cleanup ---
+                    if (_currentMissImpactEffect != null)
+                    {
+                        Destroy(_currentMissImpactEffect);
+                    }
+                    _currentMissImpactEffect = Instantiate(missImpactEffectPrefab, hit.point, Quaternion.identity);
+                    Destroy(_currentMissImpactEffect, impactEffectDuration);
+                    // --- END NEW ---
+
                     // The Fire method will now handle setting MLaser's start and end points
-                    Fire(hit.point);
+                    Fire(hit.point, false);
                     
                     Destroy(tempLaserEndPoint);
                 }
@@ -170,7 +196,13 @@ public class LaserGunController : MonoBehaviour, IWeapon
         throw new NotImplementedException();
     }
 
-    public void Fire(Vector3 hitPoint)
+    public void Fire(Vector3 points)
+    {
+        throw new NotImplementedException();
+    }
+
+    // --- UPDATED: Added a new bool parameter to differentiate between hit and miss ---
+    public void Fire(Vector3 hitPoint, bool isHit)
     { 
         if (laserPrefab == null) return;
         
@@ -180,7 +212,6 @@ public class LaserGunController : MonoBehaviour, IWeapon
         }
         if (_currentLaserEffect != null)
         {
-          
             Destroy(_currentLaserEffect);
         }
         
@@ -188,13 +219,17 @@ public class LaserGunController : MonoBehaviour, IWeapon
         
         laserDisplayCoroutine = StartCoroutine(DisableLaserAfterDelay(_currentLaserEffect, laserDisplayDuration));
         
-        if (impactEffectPrefab != null)
+        // --- NEW: Handle impact and store reference for cleanup ---
+        if (isHit && impactEffectPrefab != null)
         {
-            GameObject impact = Instantiate(impactEffectPrefab, hitPoint, Quaternion.identity);
-            Destroy(impact, impactEffectDuration);
-           
+            if (_currentImpactEffect != null)
+            {
+                Destroy(_currentImpactEffect);
+            }
+            _currentImpactEffect = Instantiate(impactEffectPrefab, hitPoint, Quaternion.identity);
+            Destroy(_currentImpactEffect, impactEffectDuration);
         }
-
+        // --- END NEW ---
     }
 
     private GameObject laserToDisable;
@@ -255,11 +290,17 @@ public class LaserGunController : MonoBehaviour, IWeapon
             laserDisplayCoroutine = StartCoroutine(DisableLaserAfterDelay(_currentLaserEffect, laserDisplayDuration));
         }
         
+        // --- NEW: Handle impact and store reference for cleanup ---
         if (impactEffectPrefab != null) 
         {
-            GameObject impact = Instantiate(impactEffectPrefab, targetTransform.position, Quaternion.identity);
-            Destroy(impact, impactEffectDuration);
+            if (_currentImpactEffect != null)
+            {
+                Destroy(_currentImpactEffect);
+            }
+            _currentImpactEffect = Instantiate(impactEffectPrefab, targetTransform.position, Quaternion.identity);
+            Destroy(_currentImpactEffect, impactEffectDuration);
         }
+        // --- END NEW ---
         
         targetCharacter.GetComponent<IReactable>().ReactToHit();
        

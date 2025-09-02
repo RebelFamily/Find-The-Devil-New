@@ -1,4 +1,4 @@
-/*using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Purchasing;
@@ -202,9 +202,9 @@ public class IAPManager : MonoBehaviour, IStoreListener
 			case AppStore.MacAppStore:
 			{
 #if !UNITY_EDITOR
-				/#1#/byte[] appleTangleData = AppleStoreKitTestTangle.Data(); // While testing with StoreKit Testing
+				/*//byte[] appleTangleData = AppleStoreKitTestTangle.Data(); // While testing with StoreKit Testing
 				byte[] appleTangleData = AppleTangle.Data();
-				purchaseValidator = new CrossPlatformValidator( GooglePlayTangle.Data(), appleTangleData, Application.identifier );#1#
+				purchaseValidator = new CrossPlatformValidator( GooglePlayTangle.Data(), appleTangleData, Application.identifier );*/
 #endif
 				break;
 			}
@@ -385,4 +385,4 @@ public class IAPManager : MonoBehaviour, IStoreListener
 	{
 		return storeController.products.WithID(productID).metadata.localizedPriceString;
 	}
-}*/
+}

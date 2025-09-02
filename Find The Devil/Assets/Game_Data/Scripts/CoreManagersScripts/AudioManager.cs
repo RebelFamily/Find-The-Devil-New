@@ -76,7 +76,8 @@ public class AudioManager : MonoBehaviour
         Drone,
         HitSound,
         Confettipop,
-        LevelCompleteLaugh
+        LevelCompleteLaugh,
+        KingDevilTalk
         
         
     }

@@ -3,7 +3,7 @@ using System.Collections;
 using Dreamteck.Splines;
 using UnityEngine;
 using DG.Tweening;
-//using GameAnalyticsSDK;
+using GameAnalyticsSDK;
 using ITHappy;
 using UnityEngine.EventSystems;
 
@@ -144,8 +144,24 @@ public class PlayerController : MonoBehaviour
         if (splineFollower != null)
         {
             _capturedSceneSkipped = true;
-            splineFollower.SetPercent(.995);
-            splineFollower.followSpeed = 3;
+            splineFollower.SetPercent(GameManager.Instance.levelManager._currentLevelObj.GetComponent<LevelPhaseManager>().levelSkipPoint);
+
+
+            if (GameManager.Instance.levelManager._currentLevelNumber == 11 || GameManager.Instance.levelManager._currentLevelNumber == 23)
+            {
+                if (GameManager.Instance.levelManager._currentLevelNumber == 11)
+                {
+                    GameManager.Instance.playerController.ResetCameraAngles(0.3f);
+                }
+
+                splineFollower.followSpeed = 1;
+
+            }
+            else
+            {
+                splineFollower.followSpeed = -1;
+            }
+            
             splineFollower.follow = true;
             
             Debug.Log("Player has been moved to the last spline point.");
@@ -159,7 +175,7 @@ public class PlayerController : MonoBehaviour
 
         if (cameraRotationAnimator != null)
         {
-            splineFollower.followSpeed = 0.01f;
+            splineFollower.followSpeed = 0.001f;
             cameraRotationAnimator.ResetRotationToOriginalRotation(time);
         }
     }
@@ -203,6 +219,9 @@ public class PlayerController : MonoBehaviour
     
     public void Shoot(Vector2 pos)
     {
+        // tap to zap check
+        GameManager.Instance.uiManager.ShowTapTOZapPanel(false);
+        
         // --- CHANGED: Call HandleTapInput on the IWeapon reference ---
         if (_currentLaserGun != null && (_currentLaserGun as MonoBehaviour).gameObject.activeInHierarchy)
         {
@@ -223,7 +242,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.uiManager.HideAllPanels();
         
         // Game Analytics
-       // AnalyticsManager.Instance.ProgressionEventSingleMode(GAProgressionStatus.Start, (GameManager.Instance.levelManager.GlobalLevelNumber+1).ToString());
+        AnalyticsManager.Instance.ProgressionEventSingleMode(GAProgressionStatus.Start, (GameManager.Instance.levelManager.GlobalLevelNumber+1).ToString());
         
        
         if (check)   
@@ -276,7 +295,8 @@ public class PlayerController : MonoBehaviour
         
         if (GameManager.Instance.levelManager.CurrentLevel.GetLevelType() == LevelType.Rescue)
         {
-            
+            // tap to zap check
+            GameManager.Instance.uiManager.ShowTapTOZapPanel(true);
              _currentLaserGun.Activate();
             (_currentLaserGun as MonoBehaviour).transform.SetPositionAndRotation(gunUsePos.position, gunUsePos.rotation);
             (_currentLaserGun as MonoBehaviour).transform.localScale = gunUsePos.localScale;

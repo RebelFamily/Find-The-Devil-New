@@ -7,11 +7,8 @@ public class SpeakerAnimator : MonoBehaviour
     public Transform speakerCone;
 
     [Header("Animation Settings")]
-    [Tooltip("The duration of a single pulse cycle (in and out).")]
-    public float pulseDuration = 0.2f;
-
-    [Tooltip("The local Z-axis distance the cone will move during the pulse.")]
-    public float movementDistance = 0.5f;
+    [Tooltip("The local Y-axis distance the speaker will move upward.")]
+    public float movementDistance = 0.1f;
 
     [Tooltip("The ease type for the pulse animation.")]
     public Ease pulseEase = Ease.OutSine;
@@ -43,10 +40,10 @@ public class SpeakerAnimator : MonoBehaviour
         // Create a new DOTween sequence
         pulseSequence = DOTween.Sequence();
 
-        // Animate the local position of the speaker cone
-        // It will move to a new position (e.g., in) and then back to the original position (e.g., out)
-        pulseSequence.Append(speakerCone.DOLocalMoveZ(originalLocalPosition.z + movementDistance, pulseDuration / 2).SetEase(pulseEase));
-        pulseSequence.Append(speakerCone.DOLocalMoveZ(originalLocalPosition.z, pulseDuration / 2).SetEase(pulseEase));
+        // Animate the local position of the speaker
+        // It will move to a new position (e.g., up) and then back to the original position (e.g., down)
+        pulseSequence.Append(speakerCone.DOLocalMoveY(originalLocalPosition.y + movementDistance,  0.15f).SetEase(pulseEase));
+        pulseSequence.Append(speakerCone.DOLocalMoveY(originalLocalPosition.y,   0.15f).SetEase(pulseEase));
 
         // Make the animation loop indefinitely
         pulseSequence.SetLoops(-1, LoopType.Yoyo);

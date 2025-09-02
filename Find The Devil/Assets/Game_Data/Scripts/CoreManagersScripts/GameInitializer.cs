@@ -1,4 +1,3 @@
-/*
 using GameAnalyticsSDK;
 using UnityEngine;
 
@@ -19,4 +18,3 @@ public class GameInitializer : MonoBehaviour
         GameAnalytics.Initialize();
     }
 }
-*/

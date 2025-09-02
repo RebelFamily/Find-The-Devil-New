@@ -135,8 +135,7 @@ public class GetVIPPanel : UIPanel
     {
         if (_isCardFlipping) return;
         
-        //ads hide warning check
-        //IAPManager.Instance.InAppCaller(PurchaseType.VIPGuns);
+        IAPManager.Instance.InAppCaller(PurchaseType.VIPGuns);
         
         Hide();
     }

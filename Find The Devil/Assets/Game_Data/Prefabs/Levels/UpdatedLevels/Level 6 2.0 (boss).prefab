@@ -14490,6 +14490,7 @@ MonoBehaviour:
     npcsInPhase: []
   levelBGAudio: 24
   levelBasedSFXSound: 0
+  levelSkipPoint: 0.8187044
   _SplineData: {fileID: 4748080124049154309}
   _playerMovementSpeed: 4
   movePlayerToNextPoint: 0

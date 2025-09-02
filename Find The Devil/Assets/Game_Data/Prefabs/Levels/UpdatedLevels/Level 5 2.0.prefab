@@ -3683,7 +3683,7 @@ MonoBehaviour:
   humanRenderers: []
   otherRenderers: []
   deathParticleSystemPrefab: {fileID: 3366009618988657916, guid: fd4e3b07db38ed048b083f1f972c649c, type: 3}
-  devilGun: {fileID: 0}
+  devilGun: {fileID: 9040213981214204111}
   _expressionControllerl: {fileID: 5685217418355878318}
   _coinAnimator: {fileID: 1378524840134683648}
   characterSound: {fileID: 0}
@@ -10235,6 +10235,11 @@ GameObject:
 --- !u!95 &5907363695708306525 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1987885714103608317, guid: 656b8dfc31ad2594e810e19671f7b969, type: 3}
+  m_PrefabInstance: {fileID: 5363022436239630240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9040213981214204111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3969926119901740911, guid: 656b8dfc31ad2594e810e19671f7b969, type: 3}
   m_PrefabInstance: {fileID: 5363022436239630240}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5597736169844975438

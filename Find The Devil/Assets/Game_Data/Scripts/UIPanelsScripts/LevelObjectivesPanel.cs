@@ -9,6 +9,7 @@ using System.Linq;
 [System.Serializable]
 public class DialogueData
 {
+    public AudioManager.GameSound dialogue;
     public int levelNumber;
     [TextArea(3, 5)]
     public string[] dialogues;
@@ -43,12 +44,15 @@ public class LevelObjectivesPanel : UIPanel
     [SerializeField] private Image btnFiller;
     [SerializeField] private float vipGunFillAnimationDuration = 4.0f;
     [SerializeField] private float vipGunScaleAnimationDuration = 0.3f;
+
+    [SerializeField] private GameObject tapTOZap;
     
     private Tween _vipGunFillerTween;
     private Tween _vipGunScaleTween;
 
     private bool tryingThisWeapon;
     private bool isVIPGunAnime;
+    public bool isSkipped = false;
 
     
     private int _totalCoinTarget = 0;
@@ -72,6 +76,7 @@ public class LevelObjectivesPanel : UIPanel
         {
             btnFiller.fillAmount = 1f;
         }
+        skipBtn.interactable = true;
 
         if (enemyIconContainer != null) enemyIconContainer.SetActive(false);
         if (coinsText != null) coinsText.gameObject.SetActive(false);
@@ -183,6 +188,7 @@ public class LevelObjectivesPanel : UIPanel
 
     public void ActivateVIPGunFeature()
     {
+        isSkipped = false;
         if (enemyIconContainer != null) enemyIconContainer.SetActive(false);
         if (coinsText != null) coinsText.gameObject.SetActive(false);
         if (coinsObj != null) coinsObj.gameObject.SetActive(false);
@@ -245,8 +251,8 @@ public class LevelObjectivesPanel : UIPanel
     
     public void OnGetVIPGunButtonClicked(string vipGunID)
     {
-        // AdsCaller.Instance.ShowRewardedAd((() =>
-        // {
+        AdsCaller.Instance.ShowRewardedAd((() =>
+        {
             
             if (!isVIPGunAnime || getVIPGun == null || !getVIPGun.activeSelf)
             {
@@ -279,7 +285,7 @@ public class LevelObjectivesPanel : UIPanel
                     
                 });
         
-       // }));
+        }));
         
     }
 
@@ -417,10 +423,13 @@ public class LevelObjectivesPanel : UIPanel
 
     private IEnumerator PlayKingDevilDialogues(string[] dialoguesToPlay)
     {
+        
         dialogueBox.SetActive(true);
         dialogueText.text = "";
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         
+        
+        GameManager.Instance.audioManager.PlayLoopingSFX(AudioManager.GameSound.KingDevilTalk,true);
         foreach (string line in dialoguesToPlay)
         {
             dialogueText.text = "";
@@ -436,10 +445,12 @@ public class LevelObjectivesPanel : UIPanel
             yield return new WaitForSeconds(dialogueDisplayDuration);
         }
 
+        GameManager.Instance.audioManager.StopLoopingSFX();
         dialogueBox.SetActive(false);
         _cutsceneCoroutine = null;
     }
-    
+
+   
     public void StartRescuedNPCCutscene(int targetCount)
     {
         if (rescuedNPCCountPanel == null || rescuedCountImage == null || numberSprites == null || numberSprites.Length < 10)
@@ -453,6 +464,12 @@ public class LevelObjectivesPanel : UIPanel
         }
         
         rescuedNPCCountPanel.SetActive(true);
+
+        if (!isSkipped)
+        {
+            skipBtn.gameObject.SetActive(true);
+            skipBtn.interactable = true;
+        }
         
         if (targetCount >= 0 && targetCount < numberSprites.Length)
         {
@@ -465,11 +482,13 @@ public class LevelObjectivesPanel : UIPanel
     {
         Debug.Log("Skip button clicked. Triggering skip all releases.");
 
-        // Check if the skip button reference is valid
-        if (skipBtn != null)
+            // Check if the skip button reference is valid
+        if (skipBtn != null )
         {
             // Disable the button to prevent multiple presses during the skip process
             skipBtn.interactable = false;
+            skipBtn.gameObject.SetActive(false);
+            isSkipped = true;
         }
 
         // Call the skip function on the CaptureDataContainer to instantly finish the animations
@@ -478,6 +497,11 @@ public class LevelObjectivesPanel : UIPanel
         {
             GameManager.Instance.playerController.GoToLastSplinePoint();
         }
+    }
+
+    public void ShowTapToZap(bool value)
+    {
+       tapTOZap.SetActive(value);
     }
 }
 
