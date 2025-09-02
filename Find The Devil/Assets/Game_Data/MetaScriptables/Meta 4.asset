@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8a6000ad9aabc488c0fd3ea62169bf, type: 3}
+  m_Name: Meta 4
+  m_EditorClassIdentifier: 
+  metaID: 4
+  metaName: China
+  metaType: 1
+  metaPrefab: {fileID: 9124343454887161503, guid: 31883d03e765eb64dbc2f056f6afc18c, type: 3}
+  metaCompletionCoins: 200
+  metaBgSouns: 25
+  coinsRequiredToRepair: 0

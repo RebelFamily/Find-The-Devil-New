@@ -3119,6 +3119,7 @@ MonoBehaviour:
       npcObject: {fileID: 964315680408349987}
   levelBGAudio: 22
   levelBasedSFXSound: 35
+  levelSkipPoint: 0
   _SplineData: {fileID: 0}
   _playerMovementSpeed: 0
   movePlayerToNextPoint: 0

@@ -1412,11 +1412,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
       propertyPath: _editorTestMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
       propertyPath: _testLevelIndex
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1471,6 +1471,10 @@ PrefabInstance:
       propertyPath: spendProgressImage
       value: 
       objectReference: {fileID: 1163960270}
+    - target: {fileID: 3733742604919530802, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
+      propertyPath: allMetaDataList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a0fe381c8cbaf0459647b13eba40ba8, type: 2}
     - target: {fileID: 4594184006458116661, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.628492
