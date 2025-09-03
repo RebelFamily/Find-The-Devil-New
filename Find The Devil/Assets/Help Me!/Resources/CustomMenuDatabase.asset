@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CustomMenuDatabase
   m_EditorClassIdentifier: 
   _inputValues:
-    ScenePath1: Assets/GameData/MyScenes/MySplash.unity
-    ScenePath2: Assets/GameData/MyScenes/GamePlay.unity
-    ScenePath3: Assets/GameData/MyScenes/Meta 2.0.unity
+    ScenePath1: Assets/Game_Data/Scenes/MySplash.unity
+    ScenePath2: Assets/Game_Data/Scenes/GamePlay.unity
+    ScenePath3: Assets/Game_Data/Scenes/GamePlay.unity
     PrefabSavePath: Assets/GameData/MyPrefabs/

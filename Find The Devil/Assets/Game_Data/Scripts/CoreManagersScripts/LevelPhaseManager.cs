@@ -576,6 +576,13 @@ public class LevelPhaseManager : MonoBehaviour
             }
         }
     }
+
+    public void CameraRotationForLevel()
+    {
+        GameManager.Instance.playerController.StartCameraRotationForLevel(GameManager.Instance.levelManager._currentLevelNumber);
+        
+    }
+    
     
     private void DeactivateAllUnitsInScene()  
     {
@@ -612,6 +619,9 @@ public class LevelPhaseManager : MonoBehaviour
         return 0;
     }
 
+    
+    
+    
     public void CheckForBlocker(bool check)
     {
         if (GameManager.Instance._waitForTryGun)

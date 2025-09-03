@@ -1421,8 +1421,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
       propertyPath: _testLevelIndex
-      value: 2
+      value: 28
       objectReference: {fileID: 0}
+    - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
+      propertyPath: allLevelsDataAssets.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
+      propertyPath: allLevelsDataAssets.Array.data[24]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c8bcb07daac67d41a1c7f9c4158caa4, type: 2}
+    - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
+      propertyPath: allLevelsDataAssets.Array.data[25]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0fc1716c8743e88458532ce55b816f86, type: 2}
+    - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
+      propertyPath: allLevelsDataAssets.Array.data[26]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4e991b3fec49f37448bbb16c566f9aa2, type: 2}
+    - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
+      propertyPath: allLevelsDataAssets.Array.data[27]
+      value: 
+      objectReference: {fileID: 11400000, guid: 60d6f0cfbff4f5f4bbf36cac060be4f6, type: 2}
+    - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
+      propertyPath: allLevelsDataAssets.Array.data[28]
+      value: 
+      objectReference: {fileID: 11400000, guid: f5895911fb1c99d4a8ca1c623eba1d26, type: 2}
+    - target: {fileID: 7539881168104991992, guid: 06267e82b5c2a0c428e3ceff5176c515, type: 3}
+      propertyPath: allLevelsDataAssets.Array.data[29]
+      value: 
+      objectReference: {fileID: 11400000, guid: c88d48cc06f390f4f94ad06cc3f5ffc2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1441,11 +1469,31 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
+      propertyPath: m_LevelRotations.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
+      propertyPath: m_LevelRotations.Array.data[5].easeType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
+      propertyPath: m_LevelRotations.Array.data[5].levelNumber
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
+      propertyPath: m_LevelRotations.Array.data[5].rotateRelative
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
       propertyPath: m_LevelRotations.Array.data[3].rotationDuration
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
       propertyPath: m_LevelRotations.Array.data[4].rotationDuration
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
+      propertyPath: m_LevelRotations.Array.data[5].rotationDuration
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
@@ -1455,6 +1503,10 @@ PrefabInstance:
     - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
       propertyPath: m_LevelRotations.Array.data[3].targetYRotation.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
+      propertyPath: m_LevelRotations.Array.data[5].targetYRotation.y
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2924005857470340911, guid: 652960b4e8c23e14d80f3cad31f3da13, type: 3}
       propertyPath: m_LevelRotations.Array.data[0].citymetarotation.y
@@ -2031,7 +2083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2220303472575415701, guid: 5e456d6f81a8ea64cbad4518c4d83617, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2838603825343793140, guid: 5e456d6f81a8ea64cbad4518c4d83617, type: 3}
       propertyPath: m_Sprite

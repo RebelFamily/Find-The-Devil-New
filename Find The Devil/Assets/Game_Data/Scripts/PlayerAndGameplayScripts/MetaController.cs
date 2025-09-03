@@ -27,8 +27,7 @@ public class MetaController : MonoBehaviour
     public Transform _coinTargetTransform;
     public GameObject conffetiEffects;
     public GameObject buildingAppearEffects;
-    
-    // --- NEW: Flag to prevent animations when in showcase mode ---
+     
     public bool IsShowcaseMeta = false;
     
     private int _totalCoinsNeededForFullRepair;
@@ -97,7 +96,7 @@ public class MetaController : MonoBehaviour
         _isProcessingRepair = true;
         int remainingAmount = initialAmount;
         int previousBuildingPartIndex = _currentBuildingPartIndex;
-        
+      
         GameManager.Instance.audioManager.PlaySFX(AudioManager.GameSound.Meta_CoinsSpend);
         while (remainingAmount > 0 && _currentBuildingPartIndex < damagedBuildings.Length)
         {
@@ -135,6 +134,7 @@ public class MetaController : MonoBehaviour
                 if (dotweenAnim2 != null) dotweenAnim2.DORestart();
             }
             
+           
             UpdateHidingLayerScale(currentPart, _currentCoinsSpentPerPart[_currentBuildingPartIndex]);
             
             if (_currentCoinsSpentPerPart[_currentBuildingPartIndex] >= currentPart.coinsToRepair)
@@ -144,9 +144,7 @@ public class MetaController : MonoBehaviour
 
                 if (currentPart.originalFormInstance != null)
                 {
-                    // Play confetti once when a single building is repaired
                     PlayConfettiForBuilding(currentPart.originalFormInstance.transform.position, 1f);
-                   //wait for next building
                     yield return new WaitForSeconds(0.7f);
                 }
                 _currentBuildingPartIndex++;
@@ -175,6 +173,7 @@ public class MetaController : MonoBehaviour
                 UpdateRepairVisuals();
             }
         }
+       
         _isProcessingRepair = false;
     }
 
@@ -211,7 +210,6 @@ public class MetaController : MonoBehaviour
                 if (part.originalFormInstance != null) 
                 {
                     part.originalFormInstance.SetActive(true);
-                    // Use the new helper function to set the layer for the parent and all children
                     SetChildrenLayer(part.originalFormInstance, defaultLayer);
                 }
                 if (part.damagedFormInstance != null) part.damagedFormInstance.SetActive(false);
@@ -244,8 +242,7 @@ public class MetaController : MonoBehaviour
            
             damagedProps.SetActive(false);
             repairedProps.SetActive(true);
-
-            // --- NEW: Add a check to prevent the animation from playing in showcase mode ---
+            
             if (!_hasPlayedFullRepairConfetti && !IsShowcaseMeta)
             {
                 _hasPlayedFullRepairConfetti = true;
@@ -260,16 +257,13 @@ public class MetaController : MonoBehaviour
             repairedProps.SetActive(false);
         }
     }
-
-    // Helper function to set the layer for a GameObject and all its children
+    
     private void SetChildrenLayer(GameObject parent, int newLayer)
     {
         if (parent == null) return;
-
-        // Set the layer for the parent object itself
+        
         parent.layer = newLayer;
-
-        // Recursively set the layer for all children
+        
         foreach (Transform child in parent.transform)
         {
             SetChildrenLayer(child.gameObject, newLayer);
@@ -304,17 +298,11 @@ public class MetaController : MonoBehaviour
                 remainingCoinsToDistribute = 0;
                 part.isbuildingRepaired = false;
                 _currentBuildingPartIndex = i;
-            
-                // --- FIX: Update the hiding layer z-scale for the current repairing part ---
                 UpdateHidingLayerScale(part, _currentCoinsSpentPerPart[i]);
-                // --- END OF FIX ---
-            
                 break;
             }
-        
-            // --- FIX: Also ensure previously repaired buildings have their layers removed on load ---
+            
             UpdateHidingLayerScale(part, _currentCoinsSpentPerPart[i]);
-            // --- END OF FIX ---
         }
 
         _currentCoinsSpentGlobal = spentCoinsGlobal;
@@ -326,12 +314,7 @@ public class MetaController : MonoBehaviour
     {
         return _currentCoinsSpentGlobal;
     }
-
-    public int GetTotalCoinsToRepair()
-    {
-        return _totalCoinsNeededForFullRepair;
-    }
-
+    
     public bool IsFullyRepaired()
     {
         return _currentCoinsSpentGlobal >= _totalCoinsNeededForFullRepair;
@@ -341,12 +324,7 @@ public class MetaController : MonoBehaviour
     {
         return _isProcessingRepair;
     }
-
-    /// <summary>
-    /// Plays a single confetti burst at a specified position for a given duration.
-    /// </summary>
-    /// <param name="position">The world position to spawn the confetti.</param>
-    /// <param name="duration">The total duration for the confetti to be visible.</param>
+    
     private void PlayConfettiForBuilding(Vector3 position, float duration)
     {
         if (conffetiEffects == null) return;
@@ -374,17 +352,14 @@ public class MetaController : MonoBehaviour
             DamagedBuildings part = damagedBuildings[i];
             if (part.originalFormInstance != null)
             {
-                // Play the first burst for this building
                 PlayConfettiForBuilding(part.originalFormInstance.transform.position, totalDuration);
                 yield return new WaitForSeconds(delayBetweenBursts);
                 
-                // Play the second burst for this building
                 PlayConfettiForBuilding(part.originalFormInstance.transform.position, totalDuration);
             }
             yield return new WaitForSeconds(delayBetweenBursts);
         }
         
-        // Final call after the animation is complete
         yield return new WaitForSeconds(0.5f);
         
         GameManager.Instance.metaManager.FillMeta();

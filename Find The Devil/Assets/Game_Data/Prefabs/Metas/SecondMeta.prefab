@@ -4326,7 +4326,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0, y: 0, z: 0, w: 1}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.14948899, y: 0.98155266, z: 0.093312524, w: 0.07416303}
-    ColliderRadius: 0.5350681
+    ColliderRadius: 0.6958603
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0, y: 0, z: 0}
@@ -4358,7 +4358,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.1212025, y: 0.079562545, z: -0.061330326, w: 0.98753214}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.12120244, y: 0.07956247, z: -0.061330296, w: 0.98753154}
-    ColliderRadius: 0.40130106
+    ColliderRadius: 0.52189523
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.34633365, y: -0.09584737, z: -0.006581483}
@@ -4390,7 +4390,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.048973374, y: 0.11493151, z: -0.07624364, w: 0.9892325}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.07251715, y: 0.028555354, z: -0.024656605, w: 0.9966534}
-    ColliderRadius: 0.38150322
+    ColliderRadius: 0.4961463
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.32936886, y: -0.08593561, z: 0.033141233}
@@ -4422,7 +4422,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: -0.36050743, y: 0.34571108, z: 0.006336209, w: 0.86630225}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.42613733, y: 0.21524662, z: 0.013953668, w: 0.8785677}
-    ColliderRadius: 0.37729183
+    ColliderRadius: 0.49066994
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.32566327, y: -0.09902474, z: 0.008915931}
@@ -4454,7 +4454,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: -0.31018576, y: 0.5103018, z: 0.14087863, w: 0.78963995}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.02951339, y: 0.12026588, z: 0.19377297, w: 0.97319937}
-    ColliderRadius: 0.35617304
+    ColliderRadius: 0.46320534
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.3135128, y: -0.09098408, z: 0.018542277}
@@ -4486,7 +4486,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.016014066, y: 0.660183, z: 0.110050045, w: 0.74282724}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.27990633, y: 0.105848625, z: 0.19520256, w: 0.9339939}
-    ColliderRadius: 0.35944796
+    ColliderRadius: 0.46746445
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.25828502, y: -0.10607661, z: 0.08853479}
@@ -4518,7 +4518,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.04308192, y: 0.79213655, z: 0.2787553, w: 0.54125816}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.07351993, y: 0.23081364, z: 0.16325788, w: 0.95638216}
-    ColliderRadius: 0.3386937
+    ColliderRadius: 0.44047302
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.13727401, y: -0.20949277, z: 0.121398754}
@@ -4550,7 +4550,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.12292625, y: 0.8722329, z: 0.45091087, w: 0.1441522}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.05371896, y: 0.34307432, z: 0.26367253, w: 0.89993954}
-    ColliderRadius: 0.32924885
+    ColliderRadius: 0.42818964
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.06792653, y: -0.30805364, z: -0.02553217}
@@ -4582,7 +4582,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.19154856, y: 0.82534504, z: 0.51278967, w: -0.13843112}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.030485954, y: 0.21638307, z: 0.20195787, w: 0.95470524}
-    ColliderRadius: 0.36446068
+    ColliderRadius: 0.47398356
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.17017147, y: -0.25486645, z: -0.13582379}
@@ -4614,7 +4614,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.2372304, y: 0.7919481, z: 0.54995763, w: -0.118693374}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.05790636, y: -0.027972823, z: 0.028833969, w: 0.99751335}
-    ColliderRadius: 0.36284083
+    ColliderRadius: 0.47187585
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.12551166, y: -0.25843608, z: -0.0932977}
@@ -4646,7 +4646,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.20157325, y: 0.7269345, z: 0.6345361, w: 0.16822593}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.16657001, y: -0.17983384, z: -0.18064754, w: 0.95251286}
-    ColliderRadius: 0.36241513
+    ColliderRadius: 0.47132316
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.042153854, y: -0.27145195, z: -0.02576432}
@@ -4678,7 +4678,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.13829125, y: 0.97225857, z: 0.1603043, w: 0.099463366}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.50361663, y: 0.03581809, z: -0.13159814, w: 0.85309404}
-    ColliderRadius: 0.349787
+    ColliderRadius: 0.45490044
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.18273339, y: -0.24833098, z: 0.054173946}
@@ -19685,7 +19685,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0, y: 0, z: 0, w: 1}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.32606894, y: 0.9448599, z: 0.011255775, w: -0.028143523}
-    ColliderRadius: 0.52070683
+    ColliderRadius: 0.67717934
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0, y: 0, z: 0}
@@ -19717,7 +19717,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.123554036, y: 0.115579516, z: -0.05614972, w: 0.98398346}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.12355401, y: 0.11557945, z: -0.056149736, w: 0.9839833}
-    ColliderRadius: 0.39053014
+    ColliderRadius: 0.5078845
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.073553994, y: -0.054945182, z: 0.027394181}
@@ -19749,7 +19749,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.06345455, y: 0.27142036, z: -0.039133113, w: 0.9595694}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.06683771, y: 0.15489444, z: -0.010827814, w: 0.98560804}
-    ColliderRadius: 0.37197042
+    ColliderRadius: 0.48374736
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.073205516, y: -0.072444215, z: 0.029898426}
@@ -19781,7 +19781,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: -0.29913878, y: 0.56428194, z: 0.16427878, w: 0.7517411}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.40141636, y: 0.33614776, z: 0.07005628, w: 0.8490947}
-    ColliderRadius: 0.36517638
+    ColliderRadius: 0.47491187
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.06891155, y: -0.08736593, z: 0.022005215}
@@ -19813,7 +19813,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: -0.22611603, y: 0.73180455, z: 0.2878353, w: 0.5748783}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.040212642, y: 0.17677747, z: 0.2132552, w: 0.9600286}
-    ColliderRadius: 0.3504029
+    ColliderRadius: 0.45569927
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.05187888, y: -0.089052305, z: 0.017883813}
@@ -19845,7 +19845,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.012334763, y: 0.8505112, z: 0.114411615, w: 0.5132145}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.2842171, y: 0.08394698, z: 0.119392306, w: 0.94758594}
-    ColliderRadius: 0.36031237
+    ColliderRadius: 0.46858644
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.03371851, y: -0.06975016, z: 0.028488768}
@@ -19877,7 +19877,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.062831715, y: 0.8693688, z: 0.19892347, w: 0.44797337}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.043000188, y: 0.060431246, z: 0.09355258, w: 0.9928479}
-    ColliderRadius: 0.34176114
+    ColliderRadius: 0.44446006
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.023628648, y: -0.050430875, z: 0.049187217}
@@ -19909,7 +19909,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.2284651, y: 0.89575654, z: 0.3183393, w: 0.20996273}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.009413242, y: 0.19329481, z: 0.24317935, w: 0.95048004}
-    ColliderRadius: 0.32765305
+    ColliderRadius: 0.42611316
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.01125287, y: -0.046106357, z: 0.079612985}
@@ -19941,7 +19941,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.35800382, y: 0.8460566, z: 0.3945915, w: 0.01788453}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.013043518, y: 0.1378037, z: 0.20454594, w: 0.96902066}
-    ColliderRadius: 0.34796554
+    ColliderRadius: 0.45252907
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.004753543, y: -0.057109043, z: 0.12464636}
@@ -19973,7 +19973,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.40903625, y: 0.8026471, z: 0.43157718, w: 0.046780135}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.057852972, y: -0.03211956, z: 0.04797656, w: 0.9966542}
-    ColliderRadius: 0.33765477
+    ColliderRadius: 0.43911982
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.016814616, y: -0.069031276, z: 0.13551839}
@@ -20005,7 +20005,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.33933488, y: 0.744702, z: 0.46112332, w: 0.34298226}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.17314112, y: -0.19828944, z: -0.15869577, w: 0.9515877}
-    ColliderRadius: 0.338659
+    ColliderRadius: 0.4404266
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.067892715, y: -0.059900183, z: 0.08493365}
@@ -20037,7 +20037,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.3476982, y: 0.92447096, z: -0.014643989, w: 0.15571058}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.50361663, y: 0.035818238, z: -0.13159807, w: 0.853094}
-    ColliderRadius: 0.30808532
+    ColliderRadius: 0.4006647
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.10221776, y: -0.059645988, z: -0.0020915905}
@@ -20801,7 +20801,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0, y: 0, z: 0, w: 1}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.13112856, y: 0.97360325, z: 0.12779993, w: 0.13626924}
-    ColliderRadius: 0.53448594
+    ColliderRadius: 0.6950992
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0, y: 0, z: 0}
@@ -20833,7 +20833,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.12201446, y: 0.09867332, z: -0.06293578, w: 0.9856043}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.12201444, y: 0.09867331, z: -0.06293575, w: 0.985604}
-    ColliderRadius: 0.40086448
+    ColliderRadius: 0.5213244
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.07631993, y: -0.009524103, z: 0.0022367158}
@@ -20865,7 +20865,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.05436266, y: 0.19856302, z: -0.07300078, w: 0.97585297}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.070781514, y: 0.093928024, z: -0.029397197, w: 0.99262446}
-    ColliderRadius: 0.38333824
+    ColliderRadius: 0.49853128
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.07855207, y: -0.021079347, z: 0.011202607}
@@ -20897,7 +20897,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: -0.3273029, y: 0.46315894, z: 0.080276966, w: 0.81970304}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.41371134, y: 0.26968285, z: 0.048008613, w: 0.86822194}
-    ColliderRadius: 0.37497905
+    ColliderRadius: 0.487661
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: -0.050222818, y: -0.006222109, z: 0.007281154}
@@ -20929,7 +20929,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: -0.23943949, y: 0.61636883, z: 0.23817697, w: 0.7113587}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.024273116, y: 0.11703253, z: 0.22896914, w: 0.966068}
-    ColliderRadius: 0.35603225
+    ColliderRadius: 0.4630201
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.0017551502, y: 0.021785822, z: 0.031073438}
@@ -20961,7 +20961,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.11320225, y: 0.74484074, z: 0.19317667, w: 0.62855494}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.28936362, y: 0.069211096, z: 0.23582892, w: 0.92512876}
-    ColliderRadius: 0.36123192
+    ColliderRadius: 0.46978202
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.044364724, y: 0.0680507, z: 0.0891952}
@@ -20993,7 +20993,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.23304358, y: 0.77297086, z: 0.38448444, w: 0.44763774}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.041252512, y: 0.15094146, z: 0.24127457, w: 0.95775855}
-    ColliderRadius: 0.34151524
+    ColliderRadius: 0.44414127
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.06331071, y: 0.07859214, z: 0.15068366}
@@ -21025,7 +21025,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.34404337, y: 0.7470342, z: 0.56169224, w: 0.08987214}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.013885961, y: 0.26355132, z: 0.30872384, w: 0.9138039}
-    ColliderRadius: 0.32987645
+    ColliderRadius: 0.42900473
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.07506618, y: 0.02438359, z: 0.16644587}
@@ -21057,7 +21057,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.3873791, y: 0.6532815, z: 0.6331887, w: -0.14911044}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.01995539, y: 0.1703588, z: 0.20528823, w: 0.963554}
-    ColliderRadius: 0.35353902
+    ColliderRadius: 0.45977688
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.16821179, y: -0.04074254, z: 0.05484396}
@@ -21089,7 +21089,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.38861212, y: 0.6191627, z: 0.67158383, w: -0.12080568}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.057834934, y: 0.00068926765, z: -0.009625061, w: 0.9982795}
-    ColliderRadius: 0.3523928
+    ColliderRadius: 0.45828658
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.26979274, y: 0.05594088, z: 0.00019029409}
@@ -21121,7 +21121,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.29978314, y: 0.6031608, z: 0.7224352, w: 0.15625438}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: -0.13916965, y: -0.09019456, z: -0.24099301, w: 0.9562527}
-    ColliderRadius: 0.35865167
+    ColliderRadius: 0.4664266
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.259143, y: 0.07675908, z: 0.011169905}
@@ -21153,7 +21153,7 @@ MonoBehaviour:
     InitialLocalRotationInRoot: {x: 0.22918427, y: 0.923431, z: 0.30271834, w: 0.05579062}
     LocalOffset: {x: 0, y: 0, z: 0}
     InitialLocalRotation: {x: 0.5036167, y: 0.03581835, z: -0.13159806, w: 0.853094}
-    ColliderRadius: 0.32501143
+    ColliderRadius: 0.4226775
     CollisionContactFlag: 0
     CollisionContactRelevancy: -1
     VelocityHelper: {x: 0.20826872, y: 0.020114785, z: 0.007810298}
@@ -22552,6 +22552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8444038743946550778}
   - component: {fileID: 6252441606404384397}
+  - component: {fileID: 4944106246949940076}
   m_Layer: 0
   m_Name: SecondMeta
   m_TagString: Untagged
@@ -22616,9 +22617,25 @@ MonoBehaviour:
   _coinTargetTransform: {fileID: 0}
   conffetiEffects: {fileID: 6405148555080861403, guid: 4c2272d3fb7517748a5b4286e1a17c47, type: 3}
   buildingAppearEffects: {fileID: 7723957292176074155, guid: 4e56ae96d6588b44d8fa12a20c26b957, type: 3}
+  IsShowcaseMeta: 0
   buildingRepairDelay: 0.1
   hidingLayerScaleDuration: 0.1
   hidingLayerScaleEase: 3
+--- !u!114 &4944106246949940076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7352491029304312697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c968cee38b47a642bd3f795c54f5706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  breathingDuration: 2
+  breathingIntensity: 0.35
+  breathingEase: 4
 --- !u!1 &7369407321466716659
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,10 +22,7 @@ public enum NPCReactionType
 public class CharacterReactionHandler : MonoBehaviour, IReactable
 {
     [Header("OnDeath Coins References")]
-    //have to find better alternate add coins
     public int onDeathCoins;
-
-    
     
     [SerializeField] private bool isADemoCharacter;
     
@@ -67,19 +64,16 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
 
    
     public static event Action<GameObject> OnHitReacted;
-    //public static event Action<GameObject> OnReactWhenEnemyDie;
     public static event Action<GameObject> OnReactWhenNPCDie;
     public static event Action<GameObject, NPCReactionType, Transform> OnSpecificReactionTriggered;
     public static event Action OnKingDevilReactionComplete;
 
     public Transform deathEffectPosition;
-    // References to renderers
     public Renderer[] humanRenderers;
     public Renderer[] otherRenderers;
-
-    // NEW: Death Effect Particle System
+    
     [Header("Death Effects")]
-    [SerializeField] private ParticleSystem deathParticleSystemPrefab; // Assign your particle system prefab here
+    [SerializeField] private ParticleSystem deathParticleSystemPrefab; 
     [SerializeField] private GameObject devilGun;
     [Header("Devil Gun Throw")]
     private float throwDuration = 0.65f;
@@ -107,8 +101,7 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
     
 
     private bool isRunAway = false;
-
-    // Store original animator controllers and layer for resetting
+    
     private RuntimeAnimatorController _originalHumanAnimatorController;
     private RuntimeAnimatorController _originalOtherFormAnimatorController;
     private int _originalLayer;
@@ -135,8 +128,7 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
         
         SetFormVisibility(otherForm, otherRenderers, true); 
         SetFormVisibility(humanForm, humanRenderers, true); 
-
-        // Store original animator controllers and layer
+        
         if (humanAnimator != null) _originalHumanAnimatorController = humanAnimator.runtimeAnimatorController;
         if (otherFormAnimator != null) _originalOtherFormAnimatorController = otherFormAnimator.runtimeAnimatorController;
         _originalLayer = gameObject.layer;
@@ -289,6 +281,7 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
 
     
    
+    // ReSharper disable Unity.PerformanceAnalysis
     private IEnumerator ReactToHitBodySwitching()
     {
         
@@ -705,7 +698,7 @@ public class CharacterReactionHandler : MonoBehaviour, IReactable
        
     }
 
-    public void DevilRunTowardsPlayer()
+    public void DevilRunTowardsPlayer() 
     {
         if(_npcRunAway != null)
             _npcRunAway.DevilRunTowardsPlayer();
