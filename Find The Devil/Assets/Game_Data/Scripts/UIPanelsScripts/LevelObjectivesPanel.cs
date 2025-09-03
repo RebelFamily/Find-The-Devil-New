@@ -197,24 +197,28 @@ public class LevelObjectivesPanel : UIPanel
             GameManager.Instance.levelManager.GlobalLevelNumber > 0
             && GameManager.Instance.levelManager.CurrentLevel.GetLevelType() != LevelType.Rescue) 
         {
-            if (getVIPGun != null)
+            
+
+            if (getVIPGun != null && !GameManager.Instance.progressionManager.IsVIPGunUnlocked())
             {
                 tryingThisWeapon = false;
                 getVIPGun.SetActive(true);
-                getVIPGun.transform.localScale = Vector3.one; 
+                getVIPGun.transform.localScale = Vector3.one;
                 isVIPGunAnime = true;
                 if (btnFiller != null)
                 {
-                   
-                    _vipGunFillerTween?.Kill(); 
-                    btnFiller.fillAmount = 1f; 
-                    
+
+                    _vipGunFillerTween?.Kill();
+                    btnFiller.fillAmount = 1f;
+
                     _vipGunFillerTween = btnFiller.DOFillAmount(0f, vipGunFillAnimationDuration)
                         .SetEase(Ease.Linear)
-                        .OnComplete(() => {
+                        .OnComplete(() =>
+                        {
                             _vipGunScaleTween = getVIPGun.transform.DOScale(0f, vipGunScaleAnimationDuration)
                                 .SetEase(Ease.InBack)
-                                .OnComplete(() => {
+                                .OnComplete(() =>
+                                {
                                     getVIPGun.SetActive(false);
                                     ActivateLevelObjectivesDisplay();
                                     _vipGunScaleTween = null;
@@ -230,8 +234,10 @@ public class LevelObjectivesPanel : UIPanel
             }
             else
             {
+                GameManager.Instance.uiManager.SwitchBlocker(true);
                 ActivateLevelObjectivesDisplay();
             }
+        
         }
         else
         {
@@ -315,7 +321,9 @@ public class LevelObjectivesPanel : UIPanel
             
            // GameManager.Instance._waitForTryGun = false;
             Debug.Log("ActivateLevelObjectivesDisplay()");
-            GameManager.Instance.playerController.SetupTools();
+            if(GameManager.Instance.levelManager._currentLevelNumber != 18)
+                GameManager.Instance.playerController.SetupTools();
+            
         }
         
         isVIPGunAnime = false;

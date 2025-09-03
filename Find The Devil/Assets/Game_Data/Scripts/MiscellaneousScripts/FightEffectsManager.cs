@@ -98,6 +98,7 @@ public class FightEffectsManager : MonoBehaviour
         }
         
         //new check
+        
         GameManager.Instance.uiManager.ShowPanel(UIPanelType.GameOverlayPanel);
         GameManager.Instance.playerController.SetupTools();
         //---------------------------------------------------

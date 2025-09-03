@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8a6000ad9aabc488c0fd3ea62169bf, type: 3}
   m_Name: Meta 5
   m_EditorClassIdentifier: 
-  metaID: 3
-  metaName: Taj Mahal
+  metaID: 5
+  metaName: London
   metaType: 1
-  metaPrefab: {fileID: 7352491029304312697, guid: ca8fc081851c56d42913564e11b72625, type: 3}
+  metaPrefab: {fileID: 3223919340129802623, guid: 9e58382bac070da479bc214ca088f10e, type: 3}
   metaCompletionCoins: 200
   metaBgSouns: 25
   coinsRequiredToRepair: 0

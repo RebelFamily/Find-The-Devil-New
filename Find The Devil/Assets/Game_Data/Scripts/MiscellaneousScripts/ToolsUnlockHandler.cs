@@ -196,4 +196,20 @@ public class ToolsUnlockHandler : MonoBehaviour
     {
         return _lastUnlockedTool;
     }
+    
+    /// <summary>
+    /// Checks if all tools in the toolsToUnlock list have been permanently unlocked.
+    /// </summary>
+    /// <returns>True if all tools are unlocked, otherwise false.</returns>
+    public bool AreAllToolsUnlocked()
+    {
+        if (GameManager.Instance.progressionManager == null)
+        {
+            Debug.LogError("ProgressionManager is not assigned!");
+            return false;
+        }
+        
+        // Use LINQ's All() method to check if every tool is unlocked.
+        return toolsToUnlock.All(tool => GameManager.Instance.progressionManager.HasItem(tool.GetItemID()));
+    }
 }

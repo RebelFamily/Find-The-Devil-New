@@ -26,6 +26,7 @@ public class ResultsPanel : UIPanel
     [SerializeField] private Button restartButton;
     [SerializeField] private GameObject killIconContainer;
     [SerializeField] private GameObject killIcon;
+    [SerializeField] private GameObject nothanksbutton;
     
     [SerializeField] private ToolsUnlockHandler toolsUnlockHandler;
 
@@ -85,7 +86,7 @@ public class ResultsPanel : UIPanel
     {
         // for scanner
         GameManager.Instance.audioManager.StopLoopingSFX();
-        
+        nothanksbutton.SetActive(false);
         toolsUnlockHandler.GetSpawnedDemoTool().GetComponent<LaserReactionAutomator>().AnimateGunBackToOriginalPos(() =>
         {
             AdsCaller.Instance.ShowTimerAd();
@@ -154,7 +155,7 @@ public class ResultsPanel : UIPanel
                 AnimatePanelIn(winPanelAnimator, () =>
                 {
                    
-                    if (toolsUnlockHandler != null)
+                    if (toolsUnlockHandler != null && !toolsUnlockHandler.AreAllToolsUnlocked())
                     {
                         toolsUnlockHandler.gameObject.SetActive(true);
                         Tween fillTween = toolsUnlockHandler.UpdateToolDisplay();
@@ -170,7 +171,8 @@ public class ResultsPanel : UIPanel
                                         getToolUnlockPanel.SetActive(true);
                                         winPanel.SetActive(false);
                                         //continueButton.interactable = false;
-                                        AnimatePanelIn(getToolUnlockPanelAnimator); 
+                                        AnimatePanelIn(getToolUnlockPanelAnimator, () => {nothanksbutton.SetActive(true); }); 
+                                        
                                         GameManager.Instance.audioManager.PlaySFX(AudioManager.GameSound.Confettipop);
                                        
 
@@ -196,6 +198,7 @@ public class ResultsPanel : UIPanel
                     }
                     else
                     {
+                        toolsUnlockHandler.gameObject.SetActive(false);
                         continueButton.gameObject.SetActive(true);
                         if(continueButtonAnimator != null) continueButtonAnimator.ScaleUp();
                        // continueButton.interactable = true;

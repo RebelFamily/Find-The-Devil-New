@@ -328,6 +328,13 @@ public class ProgressionManager : MonoBehaviour
        // Debug.Log($"Loaded total level repetitions: {repeatCount}");
         return repeatCount;
     }
+    // --- NEW: Method to check if the VIP gun is unlocked ---
+    public bool IsVIPGunUnlocked()
+    {
+        return HasItem("WPN_12");
+    }
+    
+    
 }
 
 [System.Serializable]

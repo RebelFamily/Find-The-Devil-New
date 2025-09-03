@@ -17,6 +17,7 @@ public class AdsCaller : MonoBehaviour
     public bool _isAppOpenAddReady = false;
     public bool _isRemoveAdsPurchased = false; // New variable to track the purchase
     public bool _isGetVIPPurchased = false; // New variable to track the purchase
+    public bool _isAllGunsPurchased = false; // New variable to track the purchase
 
     private void Start()
     {

@@ -438,7 +438,7 @@ MonoBehaviour:
   kingDevilAnimatorController: {fileID: 0}
   devilRunTowardsPlayerAnimatorController: {fileID: 0}
   navMeshAgent: {fileID: 0}
-  electrifyEffectDuration: 2
+  electrifyEffectDuration: 1.25
   electrifyAnimInt: 5
   deathAnimInt: 6
   kingDeathAnimInt: 29
@@ -732,7 +732,7 @@ MonoBehaviour:
   kingDevilAnimatorController: {fileID: 0}
   devilRunTowardsPlayerAnimatorController: {fileID: 0}
   navMeshAgent: {fileID: 0}
-  electrifyEffectDuration: 2
+  electrifyEffectDuration: 1.25
   electrifyAnimInt: 5
   deathAnimInt: 6
   kingDeathAnimInt: 29
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   kingDevilAnimatorController: {fileID: 0}
   devilRunTowardsPlayerAnimatorController: {fileID: 0}
   navMeshAgent: {fileID: 0}
-  electrifyEffectDuration: 2
+  electrifyEffectDuration: 1.25
   electrifyAnimInt: 5
   deathAnimInt: 6
   kingDeathAnimInt: 29
@@ -1699,6 +1699,7 @@ MonoBehaviour:
       npcObject: {fileID: 339748025560822137}
   levelBGAudio: 22
   levelBasedSFXSound: 0
+  levelSkipPoint: 0
   _SplineData: {fileID: 8642341434984785001}
   _playerMovementSpeed: 3
   movePlayerToNextPoint: 0

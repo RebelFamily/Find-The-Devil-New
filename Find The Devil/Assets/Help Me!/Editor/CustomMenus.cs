@@ -15,8 +15,8 @@ public class CustomMenus :MonoBehaviour{
 
 
 	public static string Path1="";
-	public static string Path2="MySplash";
-	public static string Path3="GamePlay";
+	public static string Path2="Assets/Game_Data/Scenes/MySplash";
+	public static string Path3="Assets/Game_Data/Scenes/GamePlay";
 	public static string PrefabSavePath="Assets/Prefabs/NPC/";
 	public const string textFilePath = "Assets/Help Me!/Resources/CustomMenusData.txt";
 	public const string CustomMenuDatabasePath = "Assets/Help Me!/Resources/CustomMenuDatabase.asset";
@@ -35,7 +35,7 @@ public class CustomMenus :MonoBehaviour{
 			bool value = EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
 			if(value)
 			{
-				EditorSceneManager.OpenScene(CustomMenus.Path1);
+				EditorSceneManager.OpenScene(Path1);
 			}
 			#else
 			bool value = EditorApplication.SaveCurrentSceneIfUserWantsTo();
@@ -57,7 +57,7 @@ public class CustomMenus :MonoBehaviour{
 			bool value = EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
 			if(value)
 			{
-				EditorSceneManager.OpenScene(CustomMenus.Path2);
+				EditorSceneManager.OpenScene(Path2);
 			}
 			#else
 
